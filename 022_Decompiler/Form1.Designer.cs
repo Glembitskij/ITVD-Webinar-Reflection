@@ -33,6 +33,7 @@
             openToolStripMenuItem = new ToolStripMenuItem();
             closeToolStripMenuItem = new ToolStripMenuItem();
             treeView1 = new TreeView();
+            richTextBox1 = new RichTextBox();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -42,7 +43,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { fIleToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(800, 33);
+            menuStrip1.Size = new Size(1121, 33);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -56,28 +57,38 @@
             // openToolStripMenuItem
             // 
             openToolStripMenuItem.Name = "openToolStripMenuItem";
-            openToolStripMenuItem.Size = new Size(270, 34);
+            openToolStripMenuItem.Size = new Size(158, 34);
             openToolStripMenuItem.Text = "Open";
             openToolStripMenuItem.Click += openToolStripMenuItem_Click;
             // 
             // closeToolStripMenuItem
             // 
             closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            closeToolStripMenuItem.Size = new Size(270, 34);
+            closeToolStripMenuItem.Size = new Size(158, 34);
             closeToolStripMenuItem.Text = "Close";
             // 
             // treeView1
             // 
             treeView1.Location = new Point(19, 37);
             treeView1.Name = "treeView1";
-            treeView1.Size = new Size(334, 401);
+            treeView1.Size = new Size(458, 531);
             treeView1.TabIndex = 1;
+            treeView1.NodeMouseDoubleClick += TreeView1_NodeMouseDoubleClick;
+            // 
+            // richTextBox1
+            // 
+            richTextBox1.Location = new Point(521, 36);
+            richTextBox1.Name = "richTextBox1";
+            richTextBox1.Size = new Size(568, 532);
+            richTextBox1.TabIndex = 2;
+            richTextBox1.Text = "";
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1121, 580);
+            Controls.Add(richTextBox1);
             Controls.Add(treeView1);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
@@ -96,5 +107,6 @@
         private ToolStripMenuItem openToolStripMenuItem;
         private ToolStripMenuItem closeToolStripMenuItem;
         private TreeView treeView1;
+        private RichTextBox richTextBox1;
     }
 }

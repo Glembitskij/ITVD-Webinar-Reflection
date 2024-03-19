@@ -37,11 +37,75 @@ namespace _022_Decompiler
         {
             Type[] types = assembly.GetTypes();
 
-            foreach (Type type in types)
+            IEnumerable<string> namespases = types.Select(t => t.Namespace).Distinct();
+
+            foreach (string namespase in namespases)
             {
-                TreeNode newNode = new TreeNode(type.Name);
-                treeView1.Nodes.Add(newNode);
+                TreeNode namespaseNode = new TreeNode(namespase);
+
+                foreach (Type type in types.Where(t=>t.Namespace == namespase))
+                {
+                    TreeNode typeNode = new TreeNode(type.Name);
+
+                    // Інформація про базовий тип
+                    TreeNode baseTypeNode = new TreeNode("Base Type");
+                    baseTypeNode.Nodes.Add(type?.BaseType?.ToString());
+                    typeNode.Nodes.Add(baseTypeNode); 
+
+                    // Інформація про поля классу MyClass
+                    FieldInfo[] fieldInfos = type.GetFields(
+                        BindingFlags.Public
+                        | BindingFlags.NonPublic
+                        | BindingFlags.Instance
+                        | BindingFlags.Static);
+
+                    // Перебираємо кожне поля та виводимо інформацію про нього
+                    foreach (FieldInfo fieldInfo in fieldInfos)
+                    {
+                        typeNode.Nodes.Add(new TreeNode($"field - {fieldInfo.Name} " +
+                            $": {fieldInfo.FieldType.Name}"));
+                    }
+
+                    // Інформація про властивості классу MyClass
+                    PropertyInfo[] propertyInfos = type.GetProperties(BindingFlags.Public
+                        | BindingFlags.NonPublic
+                        | BindingFlags.Instance
+                        | BindingFlags.Static);
+
+                    // Перебираємо кожну властивість та виводимо інформацію про неї
+                    foreach (PropertyInfo propertyInfo in propertyInfos)
+                    {
+                        typeNode.Nodes.Add(new TreeNode($"property - {propertyInfo.Name} " +
+                            $": {propertyInfo.PropertyType.Name}"));
+                    }
+
+                    MethodInfo[] methodInfos = type.GetMethods(
+                        BindingFlags.Public
+                        | BindingFlags.NonPublic
+                        | BindingFlags.Instance
+                        | BindingFlags.Static
+                        | BindingFlags.DeclaredOnly);
+
+                    // Перебираємо кожний метод та виводимо інформацію про нього
+                    foreach (MethodInfo methodInfo in methodInfos)
+                    {
+                        if (methodInfo.Name.StartsWith("get") || methodInfo.Name.StartsWith("set")) {
+                            continue;
+                        }
+
+                        typeNode.Nodes.Add(new TreeNode(methodInfo.Name));
+                    }
+
+                    namespaseNode.Nodes.Add(typeNode);
+                }
+
+                treeView1.Nodes.Add(namespaseNode);
             }
+        }
+
+        private void TreeView1_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
+            MessageBox.Show(e.Node.Text);
         }
     }
 }

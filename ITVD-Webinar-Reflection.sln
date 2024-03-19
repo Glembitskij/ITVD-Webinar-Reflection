@@ -57,7 +57,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "021_Get_IL_Code", "021_Get_
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "06_Own_Decompiler", "06_Own_Decompiler", "{CBF8E901-B77B-478C-9651-A8DDE7761588}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "022_Decompiler", "022_Decompiler\022_Decompiler.csproj", "{6D5FDC28-C4D2-4798-80A3-F3A21F59FA3F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "022_Decompiler", "022_Decompiler\022_Decompiler.csproj", "{6D5FDC28-C4D2-4798-80A3-F3A21F59FA3F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "023_Decompiler_Libraries", "023_Decompiler_Libraries\023_Decompiler_Libraries.csproj", "{06F446B1-D54D-4ECB-85B3-C7AEFE1EC59B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -153,6 +155,10 @@ Global
 		{6D5FDC28-C4D2-4798-80A3-F3A21F59FA3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D5FDC28-C4D2-4798-80A3-F3A21F59FA3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D5FDC28-C4D2-4798-80A3-F3A21F59FA3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06F446B1-D54D-4ECB-85B3-C7AEFE1EC59B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06F446B1-D54D-4ECB-85B3-C7AEFE1EC59B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06F446B1-D54D-4ECB-85B3-C7AEFE1EC59B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06F446B1-D54D-4ECB-85B3-C7AEFE1EC59B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -180,6 +186,7 @@ Global
 		{8B52A2D7-CD1F-46BA-9107-B748638676B6} = {E7F2A2D3-2D8D-45CD-9E08-F2A639F381BC}
 		{15CB635A-B96C-4785-9ADD-592E9EEC3051} = {FD6D4A90-D00D-4FF8-A2A0-A186A3CABF75}
 		{6D5FDC28-C4D2-4798-80A3-F3A21F59FA3F} = {CBF8E901-B77B-478C-9651-A8DDE7761588}
+		{06F446B1-D54D-4ECB-85B3-C7AEFE1EC59B} = {CBF8E901-B77B-478C-9651-A8DDE7761588}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9DC7B268-CFD1-4C30-8F2C-1BCDBAC0BD37}
