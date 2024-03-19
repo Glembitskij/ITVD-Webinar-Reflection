@@ -79,6 +79,30 @@ namespace _022_Decompiler
                             $": {propertyInfo.PropertyType.Name}"));
                     }
 
+                    string constrInfo = null;
+
+                    ConstructorInfo[] constructorInfos = type.GetConstructors(
+                        BindingFlags.Public
+                        | BindingFlags.NonPublic
+                        | BindingFlags.Static
+                        | BindingFlags.Instance);
+
+                    foreach (ConstructorInfo constructorInfo in constructorInfos)
+                    {
+                        constrInfo = type.Name + " (";
+                        
+                        ParameterInfo[] parameterInfos = constructorInfo.GetParameters();
+
+                        foreach (ParameterInfo parameterInfo in parameterInfos)
+                        {
+                            constrInfo += $" { parameterInfo.Name } - {parameterInfo.ParameterType.Name.ToLower()}";
+                        }
+
+                        constrInfo += ")";
+
+                        typeNode.Nodes.Add(new TreeNode(constrInfo));
+                    }
+
                     MethodInfo[] methodInfos = type.GetMethods(
                         BindingFlags.Public
                         | BindingFlags.NonPublic
@@ -93,7 +117,7 @@ namespace _022_Decompiler
                             continue;
                         }
 
-                        typeNode.Nodes.Add(new TreeNode(methodInfo.Name));
+                        typeNode.Nodes.Add(new TreeNode($"method - {methodInfo.Name}"));
                     }
 
                     namespaseNode.Nodes.Add(typeNode);
@@ -105,7 +129,7 @@ namespace _022_Decompiler
 
         private void TreeView1_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
         {
-            MessageBox.Show(e.Node.Text);
+            this.richTextBox1.Text = e.Node.Text;
         }
     }
 }

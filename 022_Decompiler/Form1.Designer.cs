@@ -43,7 +43,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { fIleToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1121, 33);
+            menuStrip1.Size = new Size(1279, 33);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -71,13 +71,13 @@
             // 
             treeView1.Location = new Point(19, 37);
             treeView1.Name = "treeView1";
-            treeView1.Size = new Size(458, 531);
+            treeView1.Size = new Size(550, 532);
             treeView1.TabIndex = 1;
             treeView1.NodeMouseDoubleClick += TreeView1_NodeMouseDoubleClick;
             // 
             // richTextBox1
             // 
-            richTextBox1.Location = new Point(521, 36);
+            richTextBox1.Location = new Point(635, 37);
             richTextBox1.Name = "richTextBox1";
             richTextBox1.Size = new Size(568, 532);
             richTextBox1.TabIndex = 2;
@@ -87,7 +87,7 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1121, 580);
+            ClientSize = new Size(1279, 622);
             Controls.Add(richTextBox1);
             Controls.Add(treeView1);
             Controls.Add(menuStrip1);
