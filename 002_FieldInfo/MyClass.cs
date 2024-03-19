@@ -1,5 +1,4 @@
-﻿
-namespace _02_FieldInfo
+﻿namespace _02_FieldInfo
 {
     /// <summary>
     /// Створення користувацького класу
